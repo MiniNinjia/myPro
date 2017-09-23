@@ -1,0 +1,57 @@
+//
+   Created by Administrator on 2017/8/28.
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        title #{title}
+        link(rel="stylesheet", href="./stylesheets/dist/css/bootstrap.min.css")
+        link(rel="stylesheet", href="./stylesheets/css/font-awesome.min.css")
+        link(rel="stylesheet", href="./stylesheets/header.css")
+        script(src="./javascripts/jquery.js")
+        script(src="./stylesheets/dist/js/bootstrap.min.js")
+        script.
+            var _html='!{html}'
+    body
+        .header
+            .index_icon
+                i.fa.fa-paw.fa-3x(aria-hidden="true")
+                span 窝宠
+            .index_main
+                ul.index_main_menu
+                    li.active
+                        a 首页
+                    li
+                        a 领养中心
+                    li
+                        a 领养日志
+                    li
+                        a 养宠技巧
+                    li
+                        a 周边商城
+                    li
+                        a 社区中心
+                    li |
+                    li
+                        a 发布宠物
+                .index_search_box(style="display: none")
+                    button#index_search_btn
+                        i.fa.fa-search.fa-2x(aria-hidden="true")
+                    input#index_search_txt(type="text", placeholder="输入要查找的内容")
+                    button#index_search_out
+                        i.fa.fa-times.fa-2x(aria-hidden="true")
+            .index_user
+                ul
+                    // <li id="index_search"><a><i class="fa fa-search fa-2x" aria-hidden="true"></i></a></li>
+                    // <li><a href="">注册</a></li>
+                    // <li><a href="">登陆</a></li>
+                    // <li id="index_search"><a><i class="fa fa-search fa-2x" aria-hidden="true"></i></a></li>
+                    // <li><a><img id="index_headimg" src="../public/images/dog.png" alt="" width="40px"></a></li>
+                    // <li id="index_dropdown" ><a>username</a>
+                    // <ul id="index_dropdown_menu" class="dn">
+                    // <li>个人中心</li>
+                    // <li>我发布的</li>
+                    // <li>退出</li>
+                    // </ul>
+                    // </li>
+    block content

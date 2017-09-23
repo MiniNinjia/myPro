@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.btn{
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    padding-left: 10px;
+    font-size:30px;
+    box-sizing: border-box;
+    font-weight: 100;
+}
+a{
+    color: #cb2439;
+}

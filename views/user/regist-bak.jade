@@ -1,0 +1,113 @@
+//
+   Created by Administrator on 2017/8/24.
+
+//
+   Created by Administrator on 2017/8/24.
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        link(rel='stylesheet', href='/stylesheets/dist/css/bootstrap.css')
+        link(rel='stylesheet', href='/stylesheets/login_regist.css')
+        link(rel='stylesheet', href='/stylesheets/main.css')
+        title 注册
+    body
+        .container-fluid
+            .row.col-lg-4.col-md-4.col-lg-offset-4.col-md-offset-4
+                .div_myform
+                    p  注册WOW宠
+                    span#err
+                    hr
+                    form#myfrom
+                        .form-group
+                            span.input_span
+                                i.icon-login-phone
+                                input#telphone.form-control(type="text", placeholder="手机号码", name='telphone', maxlength='11')
+                        #errPhone
+                        .form-group
+                            span.input_span
+                                i.icon-login-phone
+                                input#password.form-control(type="password", placeholder="密码", name='password', maxlength='16')
+                        #errPassword
+                        .form-group
+                            span.input_span
+                                i.icon-login-phone
+                                input#repassword.form-control(type="password", placeholder="再次输入密码", name='repassword', maxlength='16')
+                        #errRepassword
+                        button#btn_submit.btn.btn-warning(type="button") 立即注册
+script(src="/javascripts/jquery.js")
+script.
+    $(function () {
+        var _telphone = 0;
+        var _password = 0;
+        var _repassword = 0;
+        var reg = /^1\d{10}$/
+        $('#telphone').blur(function () {
+            var telPhone = this.value;
+            if (!reg.test(telPhone)) {
+                $('#err')[0].innerHTML = '！手机号码格式不正确';
+                _telphone = 1;
+            } else {
+                $.ajax({
+                    url: '/users/regist_searchTelPhone?telphone=' + telPhone,
+                    type: 'get',
+                    //data: $('#myfrom').serialize(),
+                    dataType: 'text',
+                    success: function (data) {
+                        if (data != 0) {
+                            $('#err')[0].innerHTML = '！该手机号码已经注册过了';
+                            _telphone = 1;
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err.message)
+                    }
+                })
+            }
+        });
+        $('#password').blur(function () {
+            if (this.value.length <= 6) {
+                $('#err')[0].innerHTML = '！密码过短！';
+                _password = 1;
+            }
+        });
+        $('#repassword').blur(function () {
+            if (this.value != $('#password').val()) {
+                $('#err')[0].innerHTML = '！两次密码输入不一致';
+                _repassword = 1;
+            }
+        });
+        $('#repassword').focus(function () {
+            $('#err')[0].innerHTML = '';
+            _password = 0;
+        })
+        $('#password').focus(function () {
+            $('#err')[0].innerHTML = '';
+            _repassword = 0;
+        })
+        $('#telphone').focus(function () {
+            $('#err')[0].innerHTML = '';
+            _telphone = 0;
+        })
+
+        $('#btn_submit').click(function () {
+            if (_password + _telphone + _repassword == 0) {
+                $.ajax({
+                    url: '/users/regist',
+                    type: 'post',
+                    data: $('#myfrom').serialize(),
+                    dataType: 'text',
+                    success: function (data) {
+                        alert(data)
+                    },
+                    error: function (err) {
+                        console.log(err.message)
+                    }
+                })
+            } else {
+                alert('有信息错误哦')
+            }
+        })
+    })
+

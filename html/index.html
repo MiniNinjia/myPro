@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../public/stylesheets/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/stylesheets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="../public/javascripts/jquery.js"></script>
+    <script src="../public/stylesheets/dist/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .index_adv {
+        width: 100%;
+        min-height: 400px;
+        background-color: #2aabd2;
+    }
+
+    .index_adv img {
+        width: 100%;
+        min-height: 400px;
+        min-width: 1200px;
+    }
+
+    .index-container-adoption-div {
+        width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    .index-container-adoption-a {
+        font-size: 30px;
+        color: #333333;
+    }
+
+    .index-container-adoption-ul {
+        width: 1200px;
+        margin-top: 35px;
+    }
+
+    .index-container-adoption-li {
+        float: left;
+        width: 280px;
+        height: 306px;
+        margin: 10px;
+        box-sizing: border-box;
+        border: solid 1px #797979;
+    }
+
+    .index-container-adoption-userInfo {
+        width: 100%;
+        height: 35px;
+        padding-right: 30px;
+        color: #333333;
+    }
+
+    .index-container-adoption-headImg {
+        width: 60px;
+        height: 60px;
+        position: relative;
+        top: -30px;
+        left: 20px;
+        border-radius: 100%;
+        background-color: #ffc907;
+        border: 5px solid white;
+        box-sizing: border-box;
+        overflow: hidden;
+        float: left;
+    }
+
+    .index-container-adoption-headImg img {
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+    }
+
+    .index-container-adoption-userInfo span {
+        font-size: 20px;
+        clear: both;
+        color: #333333;
+    }
+
+    .index-container-adoption-userInfo-sex {
+        margin-top: 5px;
+        width: 25px;
+        height: 25px;
+        float: right;
+        border-radius: 100%;
+    }
+
+    .index-container-adoption-intro {
+        clear: both;
+        text-align: left;
+        padding: 10px;
+    }
+
+    #index-container-adoption-btn {
+        background-color: white;
+        border: solid 1px #ffc907;
+        font-size: 20px;
+        padding: 5px 20px;
+        margin-top: 25px;
+        outline: none;
+    }
+
+    #index-container-adoption-btn:hover {
+        border-color: #ffc907;
+        box-shadow: 0 0 20px #ffc907;
+        /*margin-top: 20px;*/
+        /*margin-bottom: 5px;*/
+    }
+
+    /*====================日记========================*/
+    .index-container-diary-div {
+        clear: both;
+        width: 100%;
+        background-color: #f3dd00;
+        margin-top: 50px;
+        padding-top: 25px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .index-container-diary-ul {
+        width: 1200px;
+        height: 390px;
+        margin: 0 auto;
+        margin-top: 25px;
+        margin-bottom: 40px;
+        overflow: hidden;
+    }
+
+    .index-container-diary-ul li {
+        width: 1200px;
+        height: 390px;
+        float: left;
+        overflow: hidden;
+    }
+
+    .index-container-diary-ul li:first-child {
+        width: 1200px;
+    }
+
+    .index-container-diary-ul li div {
+        width: 390px;
+        height: 390px;
+        float: left;
+        background-color: white;
+    }
+
+    .index-container-diary-ul li div:nth-child(2) {
+        margin: 0 15px;
+    }
+
+    .index-container-diary-ul-list {
+        width: 300px;
+        height: 10px;
+        margin: 0 auto;
+    }
+
+    .index-container-diary-ul-list li {
+        float: left;
+        width: 60px;
+        height: 10px;
+        padding: 0 10px;
+    }
+
+    .index-container-diary-ul-list li a {
+        border: solid 1px white;
+        width: 40px;
+        height: 10px;
+        display: block;
+    }
+
+    .index-container-diary-ul-list li a i {
+        width: 0px;
+        height: 10px;
+        display: block;
+        background-color: white;
+    }
+
+    .index-container-diary-ul-list li:first-child a i {
+        width: 40px;
+    }
+
+    #index-container-diary-btn {
+        border: none;
+        background-color: white;
+        font-size: 20px;
+        padding: 5px 20px;
+        margin-top: 25px;
+        outline: none;
+        margin-bottom: 25px;
+    }
+
+    #index-container-diary-btn:hover {
+        border-color: #ffc907;
+        box-shadow: 0 0 20px #ffffff;
+        /*margin-top: 20px;*/
+        /*margin-bottom: 5px;*/
+    }
+
+    /*==============================领养技巧=========================*/
+    .index-container-skill-div {
+        clear: both;
+        width: 100%;
+        height: 1000px;
+        background-color: #ffffff;
+        padding-top: 25px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .index-container-skill-ul {
+        width: 1200px;
+        height: 700px;
+        margin: 0 auto;
+        margin-top: 25px;
+        margin-bottom: 40px;
+        overflow: hidden;
+    }
+
+    .index-container-skill-ul li {
+        width: 1200px;
+        height: 700px;
+        float: left;
+        overflow: hidden;
+    }
+
+    .index-container-skill-ul li:first-child {
+        width: 1200px;
+    }
+
+    .index-container-skill-ul li div {
+        width: 280px;
+        height: 306px;
+        float: left;
+        margin: 10px;
+        background-color: #2cff47;
+    }
+
+    .index-container-skill-ul-list {
+        width: 300px;
+        height: 10px;
+        margin: 0 auto;
+    }
+
+    .index-container-skill-ul-list li {
+        float: left;
+        width: 60px;
+        height: 10px;
+        padding: 0 10px;
+    }
+
+    .index-container-skill-ul-list li a {
+        border: solid 1px #ffc907;
+        width: 40px;
+        height: 10px;
+        display: block;
+    }
+
+    .index-container-skill-ul-list li a i {
+        width: 0px;
+        height: 10px;
+        display: block;
+        background-color: #ffc907;
+    }
+
+    .index-container-skill-ul-list li:first-child a i {
+        width: 40px;
+    }
+
+    #index-container-skill-btn {
+        background-color: white;
+        border: solid 1px #ffc907;
+        font-size: 20px;
+        padding: 5px 20px;
+        margin-top: 25px;
+        outline: none;
+    }
+
+    #index-container-skill-btn:hover {
+        border-color: #ffc907;
+        box-shadow: 0 0 20px #ffc907;
+        /*margin-top: 20px;*/
+        /*margin-bottom: 5px;*/
+    }
+</style>
+<body>
+<div class="header">
+    <div class="index_icon">
+        <i class="fa fa-paw fa-3x" aria-hidden="true"></i>
+        <span>窝宠</span>
+    </div>
+    <div class="index_main">
+        <ul class="index_main_menu">
+            <li class="active"><a>首页</a></li>
+            <li><a>领养中心</a></li>
+            <li><a>领养日志</a></li>
+            <li><a>养宠技巧</a></li>
+            <li><a>周边商城</a></li>
+            <li><a>社区中心</a></li>
+            <li>|</li>
+            <li><a>发布宠物</a></li>
+        </ul>
+        <div class="index_search_box" style="display: none">
+            <button id="index_search_btn"><i class="fa fa-search fa-2x" aria-hidden="true"></i></button>
+            <input id="index_search_txt" type="text" placeholder="输入要查找的内容">
+            <button id="index_search_out"><i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
+        </div>
+    </div>
+    <div class="index_user">
+        <ul>
+            <!--<li id="index_search"><a><i class="fa fa-search fa-2x" aria-hidden="true"></i></a></li>-->
+            <!--<li><a href="">注册</a></li>-->
+            <!--<li><a href="">登陆</a></li>-->
+            <!---->
+            <li id="index_search"><a><i class="fa fa-search fa-2x" aria-hidden="true"></i></a></li>
+            <li><a><img id="index_headimg" src="../upload/headimg/dog.png" alt="" width="40px"></a></li>
+            <li id="index_dropdown"><a>username</a>
+                <ul id="index_dropdown_menu" class="dn">
+                    <li>个人中心</li>
+                    <li>我发布的</li>
+                    <li>退出</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="index_adv">
+    <ul>
+        <li><a href=""><img src="../upload/adv/adv3.png" alt=""></a></li>
+        <!--<li><a href=""><img src="../upladvdao/adv/adv2.png" alt=""></a></li>-->
+    </ul>
+</div>
+<div class="container-fluid">
+    <div class="row"><!--领养中心-->
+        <div class="index-container-adoption-div">
+            <a class="index-container-adoption-a">领养中心</a>
+            <ul class="index-container-adoption-ul">
+                <li class="index-container-adoption-li">
+                    <a href="">
+                        <div>
+                            <img src="../upload/dog1.png" width="100%"/>
+                        </div>
+                        <div class="index-container-adoption-userInfo">
+                            <div class="index-container-adoption-headImg">
+                                <img src="../upload/headimg/dog.png" alt="">
+                            </div>
+                            <span> username</span>
+                            <div class="index-container-adoption-userInfo-sex">
+                                <img src="../public/images/boy.png" height="25" width="25"/>
+                            </div>
+                        </div>
+                        <div class="index-container-adoption-intro">
+                            <span>健康没毛病,第一针疫苗打完，洗过澡了，指甲剪了，希望你好好对他负责</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="index-container-adoption-li">
+                    <a href="">
+                        <div>
+                            <img src="../upload/dog1.png" width="100%"/>
+                        </div>
+                        <div class="index-container-adoption-userInfo">
+                            <div class="index-container-adoption-headImg">
+                                <img src="../upload/headimg/dog.png" alt="">
+                            </div>
+                            <span> username</span>
+                            <div class="index-container-adoption-userInfo-sex">
+                                <img src="../public/images/girl.png" height="25" width="25"/>
+                            </div>
+                        </div>
+                        <div class="index-container-adoption-intro">
+                            <span>健康没毛病,第一针疫苗打完，洗过澡了，指甲剪了，希望你好好对他负责</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="index-container-adoption-li">
+                    <a href="">
+                        <div>
+                            <img src="../upload/dog1.png" width="100%"/>
+                        </div>
+                        <div class="index-container-adoption-userInfo">
+                            <div class="index-container-adoption-headImg">
+                                <img src="../upload/headimg/dog.png" alt="">
+                            </div>
+                            <span> username</span>
+                            <div class="index-container-adoption-userInfo-sex">
+                                <img src="../public/images/girl.png" height="25" width="25"/>
+                            </div>
+                        </div>
+                        <div class="index-container-adoption-intro">
+                            <span>健康没毛病,第一针疫苗打完，洗过澡了，指甲剪了，希望你好好对他负责</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="index-container-adoption-li">
+                    <a href="">
+                        <div>
+                            <img src="../upload/dog1.png" width="100%"/>
+                        </div>
+                        <div class="index-container-adoption-userInfo">
+                            <div class="index-container-adoption-headImg">
+                                <img src="../upload/headimg/dog.png" alt="">
+                            </div>
+                            <span> username</span>
+                            <div class="index-container-adoption-userInfo-sex">
+                                <img src="../public/images/girl.png" height="25" width="25"/>
+                            </div>
+                        </div>
+                        <div class="index-container-adoption-intro">
+                            <span>健康没毛病,第一针疫苗打完，洗过澡了，指甲剪了，希望你好好对他负责</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="index-container-adoption-li">
+                    <a href="">
+                        <div>
+                            <img src="../upload/dog1.png" width="100%"/>
+                        </div>
+                        <div class="index-container-adoption-userInfo">
+                            <div class="index-container-adoption-headImg">
+                                <img src="../upload/headimg/dog.png" alt="">
+                            </div>
+                            <span> username</span>
+                            <div class="index-container-adoption-userInfo-sex">
+                                <img src="../public/images/girl.png" height="25" width="25"/>
+                            </div>
+                        </div>
+                        <div class="index-container-adoption-intro">
+                            <span>健康没毛病,第一针疫苗打完，洗过澡了，指甲剪了，希望你好好对他负责</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="index-container-adoption-li">
+                    <a href="">
+                        <div>
+                            <img src="../upload/dog1.png" width="100%"/>
+                        </div>
+                        <div class="index-container-adoption-userInfo">
+                            <div class="index-container-adoption-headImg">
+                                <img src="../upload/headimg/dog.png" alt="">
+                            </div>
+                            <span> username</span>
+                            <div class="index-container-adoption-userInfo-sex">
+                                <img src="../public/images/girl.png" height="25" width="25"/>
+                            </div>
+                        </div>
+                        <div class="index-container-adoption-intro">
+                            <span>健康没毛病,第一针疫苗打完，洗过澡了，指甲剪了，希望你好好对他负责</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="index-container-adoption-li">
+                    <a href="">
+                        <div>
+                            <img src="../upload/dog1.png" width="100%"/>
+                        </div>
+                        <div class="index-container-adoption-userInfo">
+                            <div class="index-container-adoption-headImg">
+                                <img src="../upload/headimg/dog.png" alt="">
+                            </div>
+                            <span> username</span>
+                            <div class="index-container-adoption-userInfo-sex">
+                                <img src="../public/images/girl.png" height="25" width="25"/>
+                            </div>
+                        </div>
+                        <div class="index-container-adoption-intro">
+                            <span>健康没毛病,第一针疫苗打完，洗过澡了，指甲剪了，希望你好好对他负责</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="index-container-adoption-li">
+                    <a href="">
+                        <div>
+                            <img src="../upload/dog1.png" width="100%"/>
+                        </div>
+                        <div class="index-container-adoption-userInfo">
+                            <div class="index-container-adoption-headImg">
+                                <img src="../upload/headimg/dog.png" alt="">
+                            </div>
+                            <span> username</span>
+                            <div class="index-container-adoption-userInfo-sex">
+                                <img src="../public/images/girl.png" height="25" width="25"/>
+                            </div>
+                        </div>
+                        <div class="index-container-adoption-intro">
+                            <span>健康没毛病,第一针疫苗打完，洗过澡了，指甲剪了，希望你好好对他负责</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <button id="index-container-adoption-btn">查看更多领养信息</button>
+        </div>
+    </div><!--领养中心-->
+    <div class="row">
+        <div class="index-container-diary-div">
+            <a class="index-container-adoption-a">领养日记</a>
+            <ul class="index-container-diary-ul">
+                <li>
+                    <div>1</div>
+                    <div>1</div>
+                    <div>1</div>
+                </li>
+                <li>
+                    <div>2</div>
+                    <div>2</div>
+                    <div>2</div>
+                </li>
+                <li>
+                    <div>3</div>
+                    <div>3</div>
+                    <div>3</div>
+                </li>
+                <li>
+                    <div>4</div>
+                    <div>4</div>
+                    <div>4</div>
+                </li>
+                <li>
+                    <div>5</div>
+                    <div>5</div>
+                    <div>5</div>
+                </li>
+            </ul>
+            <ul class="index-container-diary-ul-list">
+                <li id="list0" value="0"><a><i></i></a></li>
+                <li id="list1" value="1"><a><i></i></a></li>
+                <li id="list2" value="2"><a><i></i></a></li>
+                <li id="list3" value="3"><a><i></i></a></li>
+                <li id="list4" value="4"><a><i></i></a></li>
+            </ul>
+            <button id="index-container-diary-btn">查看更多日记</button>
+        </div>
+    </div><!--领养日记-->
+    <div class="row">
+        <div class="index-container-skill-div">
+            <a class="index-container-adoption-a">领养技巧</a>
+            <ul class="index-container-skill-ul">
+                <li>
+                    <div>1</div>
+                    <div>1</div>
+                    <div>1</div>
+                    <div>1</div>
+                    <div>1</div>
+                    <div>1</div>
+                    <div>1</div>
+                    <div>1</div>
+                </li>
+                <li>
+                    <div>2</div>
+                    <div>2</div>
+                    <div>2</div>
+                    <div>2</div>
+                    <div>2</div>
+                    <div>2</div>
+                    <div>2</div>
+                    <div>2</div>
+                </li>
+                <li>
+                    <div>3</div>
+                    <div>3</div>
+                    <div>3</div>
+                    <div>3</div>
+                    <div>3</div>
+                    <div>3</div>
+                    <div>3</div>
+                    <div>3</div>
+                </li>
+                <li>
+                    <div>4</div>
+                    <div>4</div>
+                    <div>4</div>
+                    <div>4</div>
+                    <div>4</div>
+                    <div>4</div>
+                    <div>4</div>
+                    <div>4</div>
+                </li>
+                <li>
+                    <div>5</div>
+                    <div>5</div>
+                    <div>5</div>
+                    <div>5</div>
+                    <div>5</div>
+                    <div>5</div>
+                    <div>5</div>
+                    <div>5</div>
+                </li>
+            </ul>
+            <ul class="index-container-skill-ul-list">
+                <li value="0"><a><i></i></a></li>
+                <li value="1"><a><i></i></a></li>
+                <li value="2"><a><i></i></a></li>
+                <li value="3"><a><i></i></a></li>
+                <li value="4"><a><i></i></a></li>
+            </ul>
+            <button id="index-container-skill-btn">查看更多技巧</button>
+        </div>
+    </div><!--领养技巧-->
+</div>
+</body>
+<script>
+    var flag = 0;
+    var timer = null;
+    $(function () {
+        $('.index-container-diary-ul-list li').click(function (e) {
+            clearInterval(timer);
+            timer = null;
+            if ($(this).val() > flag) {
+                $(this).parent().find('li').find('a').find('i').animate({width: '0', marginLeft: '40px'}, 500);
+                $(this).children().children().animate({margin: '0'}, 10).animate({width: '40px'}, 500);
+                diary($(this).val(), true)
+            } else {
+                $(this).parent().find('li').find('a').find('i').animate({width: '0', marginRight: '40px'}, 500);
+                $(this).children().children().animate({
+                    marginLeft: '40px',
+                    marginRight: '0'
+                }, 10).animate({width: '40px', marginLeft: '0'}, 500);
+                diary($(this).val(), false)
+            }
+            flag = $(this).val();
+            setTimeout(function () {
+                timer = setInterval("playAuto()", 5000)
+            }, 5000);
+        });
+        timer = setInterval("playAuto()", 5000);
+    });
+    function playAuto() {
+        console.log(flag);
+        var reflag = flag;  //目前所在位置
+        flag++;           //目标位置
+        if (flag == 5) {
+            flag = 0
+            $('.index-container-diary-ul-list li').eq(reflag).find('a').find('i').animate({
+                width: '0',
+                marginRight: '40px'
+            }, 500);
+            $('.index-container-diary-ul-list li').eq(flag).find('a').find('i').animate({
+                marginLeft: '40px',
+                marginRight: '0'
+            }, 10).animate({width: '40px', marginLeft: '0'}, 500);
+            diary(flag, false)
+        } else {
+            $('.index-container-diary-ul-list li').eq(reflag).find('a').find('i').animate({
+                width: '0',
+                marginLeft: '40px'
+            }, 500);
+            $('.index-container-diary-ul-list li').eq(flag).find('a').find('i').animate({margin: '0'}, 10).animate({width: '40px'}, 500);
+            diary(flag, true)
+        }
+    }
+    function diary(i, bool) {
+        if (bool) {//0>>>>>>>i
+            $('.index-container-diary-ul li')
+                .animate({marginLeft: '1200px'}, 500)
+                .animate({width: '0', marginLeft: '-1200px'}, 0);
+            $('.index-container-diary-ul li').eq(i)
+                .animate({width: '1200px'}, 0)
+                .animate({marginLeft: '0'}, 500);
+        } else {
+            $('.index-container-diary-ul li')
+                .animate({marginLeft: '-1200px'}, 500)
+                .animate({width: '0'}, 0);
+            $('.index-container-diary-ul li').eq(i)
+                .animate({width: '1200px', marginLeft: '1200px'}, 0)
+                .animate({marginLeft: '0'}, 500);
+        }
+    }
+</script>
+<script src="header.js"></script>
+</html>

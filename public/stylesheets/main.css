@@ -1,0 +1,10 @@
+#errPhone,
+#errPassword,
+#errRepassword{
+    width: 100%;
+    height: 15px;
+    font-size: 10px;
+    line-height: 15px;
+    color:red;
+    font-weight: 700;
+}

@@ -1,0 +1,133 @@
+//
+   Created by Administrator on 2017/8/24.
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        link(rel='stylesheet', href='/stylesheets/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/stylesheets/login_regist.css')
+        title 窝宠网-登陆
+    body
+        .container-fluid
+            .row.col-lg-4.col-md-4.col-lg-offset-4.col-md-offset-4
+                .div_myform
+                    p  登陆WOW宠
+                    span#err
+                    hr
+                    form#myfrom
+                        .form-group
+                            span.input_span
+                                i.icon-login-phone.fa.fa-mobile.fa-lg
+                                input#telphone.form-control(type="tel", placeholder="手机号码", name='telphone', maxlength='11')
+                        .form-group
+                            span.input_span
+                                i.icon-login-password.fa.fa-lock
+                                input#password.form-control(type="password", placeholder="密码", name='password', maxlength='16')
+                        .form-group
+                            span.input_span
+                                i.icon-login-auth.fa.fa-shield
+                                input#auth.form-control(type="text", placeholder="验证码", name='auth', maxlength='4')
+                                #authimg
+                                    canvas#myCanvas
+                        button#btn_submit.btn(type="button") 登陆
+                        .form-group.txt-group
+                            | 没有账号
+                            a(href="./regist")  立即注册
+script(src="/javascripts/jquery.js")
+script(src="/javascripts/verifyCode.js")
+script.
+    $(function () {
+        //定义一个函数，用来读取特定的cookie值。
+        function getCookie(cookie_name) {
+            var allcookies = document.cookie;
+            var cookie_pos = allcookies.indexOf(cookie_name);   //索引的长度
+            // 如果找到了索引，就代表cookie存在，
+            // 反之，就说明不存在。
+            if (cookie_pos != -1) {
+                // 把cookie_pos放在值的开始，只要给值加1即可。
+                cookie_pos += cookie_name.length + 1;      //这里我自己试过，容易出问题，所以请大家参考的时候自己好好研究一下。。。
+                var cookie_end = allcookies.indexOf(";", cookie_pos);
+                if (cookie_end == -1) {
+                    cookie_end = allcookies.length;
+                }
+                var value = unescape(allcookies.substring(cookie_pos, cookie_end)); //这里就可以得到你想要的cookie的值了。。。
+            }
+            return value;
+        }
+
+        var _user = getCookie("user");
+        var reg = /^1\d{10}$/;
+        var _telphone = 1;
+        var _password = 1;
+        var _code = 1;
+        console.log(_user)
+        if (_user) {
+            location.href = '/index';
+        }
+        $('#telphone').blur(function () {
+            if (!reg.test(this.value)) {
+                $('#err').html('手机号码格式不正确');
+                _telphone = 1;
+            } else {
+                $('#err')[0].innerHTML = '';
+                _telphone = 0;
+            }
+        })
+        $('#password').blur(function () {
+            if (this.value.length <= 6) {
+                $('#err')[0].innerHTML = '密码过短';
+                _password = 1;
+            } else {
+                $('#err')[0].innerHTML = '';
+                _password = 0;
+            }
+        });
+        $('#auth').blur(function () {
+            if ($('#auth').val().toLowerCase() != code.toLowerCase()) {
+                $('#err')[0].innerHTML = '验证码错误';
+                _code = 1;
+            } else {
+                $('#err')[0].innerHTML = '';
+                _code = 0;
+            }
+        });
+        $(':input').focus(function () {
+            $(this).parent().find('i').css({'color': '#ffc907'})
+            $(this).parent().find('input').css({'border-color': '#ffc907', 'box-shadow': '0 0 8px #ffc907'})
+        })
+        $(':input').blur(function () {
+            $(this).parent().find('i').css({'color': '#333333'})
+            $(this).parent().find('input').css({'border-color': '#333333', 'box-shadow': 'none'})
+        })
+        $('#btn_submit').click(function () {
+            if (_telphone + _password + _code != 0) {
+                return;
+            }
+            $.ajax({
+                url: '/users/getPasswordByTelPhone',
+                type: 'post',
+                contentType: "application/x-www-form-urlencoded",
+                data: $('#myfrom').serialize(),
+                dataType: 'json',
+                success: function (data) {
+                    if (data.stateCode == '0') {
+                        $('#err')[0].innerHTML = '登陆成功！1秒后跳转到首页';
+                        setTimeout(function () {
+                            location.href = '/index';
+                        }, 1000)
+                    } else if (data.stateCode == '0001') {
+                        $('#err').html('密码错误');
+                    } else if (data.stateCode == '0002') {
+                        $('#err').html('账号不存在');
+                    } else {
+                        $('#err').html('服务器开小差了，请联系管理员');
+                    }
+                },
+                error: function (err) {
+                    console.log(err.message)
+                }
+            })
+        })
+    })
+

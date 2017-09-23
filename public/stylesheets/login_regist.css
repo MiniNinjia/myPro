@@ -1,0 +1,189 @@
+body {
+    background-image: url("../images/login_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.div_myform {
+    width: 416px;
+    height: 547px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    padding-top: 37px;
+    margin-top: 15%;
+}
+#div_myform{
+    height: 600px;
+}
+.div_myform p {
+    text-align: center;
+    font-size: 28px;
+    color: #ffc907;
+}
+
+.div_myform hr {
+    width: 80%;
+    border: solid 1px #ffc907;
+    color: #ffc907;
+}
+
+.div_myform span {
+    width: 100%;
+    height: 30px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    color: red;
+    font-size: 20px;
+}
+
+#myfrom {
+    width: 80%;
+    margin: 20px auto;
+}
+
+#btn_submit {
+    width: 100%;
+    background-color: #ffc907;
+    color: white;
+    margin-top: 20px;
+    height: 40px;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.input_span {
+    position: relative;
+    display: block;
+}
+
+.icon-login-phone {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 9px;
+    top: 11px;
+    color:#333333;
+}
+
+.icon-login-password {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 9px;
+    top: 11px;
+    color:#333333;
+}
+
+.icon-login-auth {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 9px;
+    top: 11px;
+    color:#333333;
+}
+
+.icon-login-mesAuth {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 9px;
+    top: 11px;
+    color:#333333;
+}
+
+#btn_Auth {
+    position: absolute;
+    width: 106px;
+    height: 38px;
+    right: 2px;
+    top: 1px;
+    box-sizing: border-box;
+    border: none;
+    font-size: 16px;
+    background-color: white;
+    color: #ffc907;
+}
+
+.form-group {
+    margin-buttom: 30px;
+    height: 40px;
+}
+
+#telphone,
+#password,
+#auth,
+#repassword,
+#messageAuth {
+    height: 40px;
+    padding-left: 40px;
+    width: 100%;
+    border-radius: 0;
+    border-color: #333333;
+}
+
+#auth {
+    width: 225px;
+    float: left;
+}
+
+#authimg {
+    float: left;
+    width: 106px;
+    height: 40px;
+    /*background-image: url("../images/1111.png");*/
+    background-color: #ffc907;
+    letter-spacing: 3px;
+    font-weight: bolder;
+    font-size: 30px;
+    line-height: 40px;
+    cursor: pointer;
+    font-family: Arial;
+    font-style: italic;
+    color: white;
+}
+
+hr {
+    margin-bottom: 50px;
+}
+
+.txt-group {
+    text-align: center;
+}
+
+.txt-group a {
+    color: #ffc907;
+}
+
+.txt-group a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.div_myform::after {
+    content: '';
+    position: absolute;
+    width: 225px;
+    height: 168px;
+    right: -250px;
+    top: 60%;
+    /*background-image: url("../images/login_dog.png");*/
+}
+
+#myCanvas {
+    width: 106px;
+    height: 40px;
+}
+
+#err {
+    font-size: 15px;
+    color: #fc6c38;
+    font-weight: bolder;
+    letter-spacing: 2px;
+}

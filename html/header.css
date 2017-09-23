@@ -1,0 +1,132 @@
+*,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a,
+a:hover {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.header {
+    width: 100%;
+    padding-left: 40px;
+    height: 100px;
+    line-height: 100px;
+    background-color: #ffc907;
+    overflow: hidden;
+}
+
+.index_icon {
+    height: 100px;
+    line-height: 100px;
+    min-width: 150px;
+    max-width: 200px;
+    margin: 0;
+    float: left;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.index_icon i {
+    font-size: 3em;
+}
+
+.index_icon span {
+    font-size: 50px;
+}
+
+.index_main {
+    float: left;
+    width: 65%;
+}
+
+.index_user ul li,
+.index_main ul li {
+    float: left;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+.index_main ul li a {
+    line-height: 80px;
+    display: inline-block;
+}
+
+.index_main_menu {
+    width: 80%;
+    height: 100px;
+    margin: 0 auto;
+
+}
+
+.index_user {
+    float: right;
+    margin-right: 2%;
+}
+
+.active a {
+    border-bottom: solid 4px black;
+}
+
+.index_main ul li a:hover {
+    border-bottom: solid 4px black;
+}
+
+.index_search_box {
+    width: 80%;
+    height: 100px;
+    margin: 0 auto;
+}
+
+#index_search_txt {
+    box-sizing: border-box;
+    border: none;
+    background-color: #ffc907;
+    outline: none;
+    font-size: 20px;
+    padding-left: 30px;
+    width: 80%;
+}
+
+#index_search_btn,
+#index_search_out {
+    outline: none;
+    background-color: #ffc907;
+    border: none;
+    box-sizing: border-box;
+    height: 70px;
+}
+
+#index_dropdown_menu {
+    background-color: #ffffff;
+    position: absolute;
+    width: 100px;
+    border: solid 5px #ffc907;
+    box-sizing: border-box;
+    height: 130px;
+    margin-left: -15px;
+}
+
+#index_dropdown_menu li {
+    text-align: center;
+    width: 100%;
+    margin: 0 !important;
+    line-height: 40px;
+    height: 40px;
+    font-weight: 600;
+}
+
+#index_dropdown_menu li:hover {
+    background-color: #ffc907;
+    cursor: pointer;
+}
+
+.dn{
+    display: none;
+}
