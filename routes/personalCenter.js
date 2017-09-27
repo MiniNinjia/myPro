@@ -57,4 +57,24 @@ router.get('/getDiaryList', function (req, res, next) {
         }
     })
 });
+router.get('/getpersonalCollect', function (req, res, next) {
+    var uid=req.query.uid;
+    dao.personalCenter.getpersonalCollect(uid,function (result) {
+        if(result!=='err'){
+            res.send(result);
+        }else{
+            res.send('err')
+        }
+    })
+});
+router.get('/getCommunitylist', function (req, res, next) {
+    var uid=req.query.uid;
+    dao.personalCenter.getCommunitylist(uid,function (result) {
+        if(result!=='err'){
+            res.send(result);
+        }else{
+            res.send('err')
+        }
+    })
+});
 module.exports=router;

@@ -11,7 +11,9 @@ var users = require('./routes/users');
 var adv = require('./routes/adv');
 var adoption = require('./routes/adoption');
 var diary = require('./routes/diary');
+var community = require('./routes/community');
 var personalCenter = require('./routes/personalCenter');
+var search = require('./routes/search');
 
 var app = express();
 
@@ -55,6 +57,8 @@ app.use('/adv', adv);
 app.use('/adoption', adoption);
 app.use('/diary', diary);
 app.use('/personal', personalCenter);
+app.use('/community', community);
+app.use('/search', search);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

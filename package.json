@@ -18,6 +18,7 @@
     "moment": "^2.18.1",
     "morgan": "~1.8.1",
     "mysql": "^2.14.1",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "showapi-sdk": "^1.0.4"
   }
 }

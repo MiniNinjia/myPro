@@ -11,7 +11,7 @@ var _mySql = require('./personalCenterSql').sql;
 
 exports.personalCenter = {
     getheadimg: function (uid, callback) {
-        client.query(_mySql.getheadimg,[uid], function (error, result) {
+        client.query(_mySql.getheadimg, [uid], function (error, result) {
             if (error) {
                 callback('err');//错误返回err
             } else {
@@ -20,8 +20,8 @@ exports.personalCenter = {
         })
     },
 
-    getinfo:function (uid,callback) {
-        client.query(_mySql.getinfo,[uid], function (error, result) {
+    getinfo: function (uid, callback) {
+        client.query(_mySql.getinfo, [uid], function (error, result) {
             if (error) {
                 callback('err');//错误返回err
             } else {
@@ -30,8 +30,8 @@ exports.personalCenter = {
         })
     },
 
-    getAdoptionlist:function (uid,callback) {
-        client.query(_mySql.getAdoptionlist,[uid], function (error, result) {
+    getAdoptionlist: function (uid, callback) {
+        client.query(_mySql.getAdoptionlist, [uid], function (error, result) {
             if (error) {
                 callback('err');//错误返回err
             } else {
@@ -39,8 +39,8 @@ exports.personalCenter = {
             }
         })
     },
-    getPublishList:function (uid,callback) {
-        client.query(_mySql.getPublishList,[uid], function (error, result) {
+    getPublishList: function (uid, callback) {
+        client.query(_mySql.getPublishList, [uid], function (error, result) {
             if (error) {
                 callback('err');//错误返回err
             } else {
@@ -48,12 +48,43 @@ exports.personalCenter = {
             }
         })
     },
-    getDiaryList:function (uid,callback) {
-        client.query(_mySql.getDiaryList,[uid], function (error, result) {
+    getDiaryList: function (uid, callback) {
+        client.query(_mySql.getDiaryList, [uid], function (error, result) {
             if (error) {
                 callback('err');//错误返回err
             } else {
                 callback(result);
+            }
+        })
+    },
+    getCommunitylist: function (uid, callback) {
+        client.query(_mySql.getCommunitylist, [uid], function (error, result) {
+            if (error) {
+                callback('err');//错误返回err
+            } else {
+                callback(result);
+            }
+        })
+    },
+    getpersonalCollect: function (uid, callback) {
+        client.query(_mySql.getpersonalCollect, [uid, uid, uid], function (error, result) {
+            if (error) {
+                callback('err');//错误返回err
+            } else {
+                var data = [];
+                result[0].forEach(function (p1, p2) {
+                    p1.url = 'adoption/detail/' + p1.petId;
+                    data.push(p1);
+                });
+                result[1].forEach(function (p1, p2) {
+                    p1.url = 'community/detail/' + p1.conmunityID;
+                    data.push(p1);
+                });
+                result[2].forEach(function (p1, p2) {
+                    p1.url = 'diary/detail/' + p1.diaryid;
+                    data.push(p1);
+                });
+                callback(data);
             }
         })
     },

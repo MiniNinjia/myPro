@@ -73,7 +73,6 @@ exports.user = {
     },
     virefy_add:function (telphone,code,callback) {
         var timestamp=new Date().getTime();
-       // var sql='insert into verifycode(phone,code,time) value(?,?,?)';
         client.query(_mySql.virefy_add,[telphone,code,timestamp],function (error,result) {
             if (error) {
                 callback('err');//错误返回err

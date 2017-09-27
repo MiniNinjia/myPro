@@ -107,7 +107,6 @@ router.get('/sendMessageAuth', function (req, res, next) {
         var options = {
             hostname: 'api.smsbao.com',
             path: '/sms?u=q975541113&p=a6d43a253ff8c21267b8200cdb2ae90c&m=' + phone + '&c=' + encodeURI(content1),
-            // path: '/sms?u=&p=a6d43a253ff8c21267b8200cdb2ae90c&m=' + phone + '&c=' + encodeURI(content1),
             method: 'GET'
         };
         var _req = _http.request(options, function (_res) {
