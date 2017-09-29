@@ -66,6 +66,20 @@ exports.personalCenter = {
             }
         })
     },
+    edit: function (data, callback) {
+        var nickname = data.users;
+        var uid = data.uid;
+        var sex = data.sex;
+        var telphone = data.tel;
+        client.query(_mySql.edit, [nickname, sex, telphone, uid], function (error, result) {
+            if (error) {
+                callback('err');//错误返回err
+            } else {
+                callback(result);
+            }
+        })
+    },
+
     getpersonalCollect: function (uid, callback) {
         client.query(_mySql.getpersonalCollect, [uid, uid, uid], function (error, result) {
             if (error) {
@@ -74,14 +88,20 @@ exports.personalCenter = {
                 var data = [];
                 result[0].forEach(function (p1, p2) {
                     p1.url = 'adoption/detail/' + p1.petId;
+                    p1.id =  p1.petId;
+                    p1.type='adoption';
                     data.push(p1);
                 });
                 result[1].forEach(function (p1, p2) {
                     p1.url = 'community/detail/' + p1.conmunityID;
+                    p1.id =  p1.conmunityID;
+                    p1.type='community';
                     data.push(p1);
                 });
                 result[2].forEach(function (p1, p2) {
                     p1.url = 'diary/detail/' + p1.diaryid;
+                    p1.id =  p1.diaryid;
+                    p1.type='diary';
                     data.push(p1);
                 });
                 callback(data);

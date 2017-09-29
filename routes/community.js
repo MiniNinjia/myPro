@@ -62,6 +62,19 @@ router.post('/getCommunityReviewCount', function (req, res, next) {
         }
     })
 });
+router.post('/addcommunity', function (req, res, next) {
+    var title = req.body.title;
+    var content = req.body.content;
+    var uid = req.body.uid;
+    var time = req.body.time;
+    dao.community.addcommunity(title,content,uid,time, function (result) {
+        if (result !== 'err') {
+            res.send(result)
+        } else {
+            res.send('err')
+        }
+    })
+});
 router.post('/getCommunityReview', function (req, res, next) {
     var communityID = req.body.cid;
     var uid = req.body.uid;

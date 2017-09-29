@@ -25,13 +25,31 @@ router.post('/', function (req, res, next) {
                 }
                 dao.search.search(list, function (result1) {
                     if (result1 !== 'err') {
+                        var info = [];
+                        var diary = [];
+                        var community = [];
+                        result1[0].forEach(function (p1, p2, p3) {
+                            info[p2] = p1;
+                            info[p2].url = '/adoption/detail/' + p1.id;
+                            info[p2].type = 'info';
+                        })
+                        result1[1].forEach(function (p1, p2, p3) {
+                            diary[p2] = p1;
+                            diary[p2].url = '/diary/detail/' + p1.id;
+                            diary[p2].type = 'diary';
+                        })
+                        result1[2].forEach(function (p1, p2, p3) {
+                            community[p2] = p1;
+                            community[p2].url = '/community/detail/' + p1.id;
+                            community[p2].type = 'community';
+                        })
                         var data = {
-                            all:[],
-                            info: result1[0],
-                            diary: result1[1],
-                            community: result1[2]
+                            all: [],
+                            info: info,
+                            diary: diary,
+                            community: community
                         };
-                        data.all= data.all.concat(result1[0],result1[1]);
+                        data.all = data.all.concat(info, diary, community);
                         res.send(data)
                     } else {
                         res.send('err')

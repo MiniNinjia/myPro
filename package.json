@@ -15,8 +15,10 @@
     "jade": "~1.11.0",
     "jquery": "^3.2.1",
     "jwt-simple": "^0.5.1",
+    "md5": "^2.2.1",
     "moment": "^2.18.1",
     "morgan": "~1.8.1",
+    "multer": "^1.3.0",
     "mysql": "^2.14.1",
     "serve-favicon": "~2.4.2",
     "showapi-sdk": "^1.0.4"

@@ -31,7 +31,7 @@ exports.community = {
     },
     collect: function (uid, state, communityID, callback) {
         if (!!state) {
-            console.log('del')
+            console.log('del');
             client.query(_mySql.delcollect, [communityID, uid], function (error, result) {
                 if (error) {
                     callback('err');//错误返回err
@@ -40,7 +40,7 @@ exports.community = {
                 }
             })
         } else {
-            console.log('add')
+            console.log('add');
             client.query(_mySql.addcollect, [communityID, uid, new Date().getTime()], function (error, result) {
                 if (error) {
                     callback('err');//错误返回err
@@ -90,6 +90,15 @@ exports.community = {
     },
     getCommunityReviewCount: function (communityID, callback) {
         client.query(_mySql.getCommunityReviewCount, [communityID], function (error, result) {
+            if (error) {
+                callback('err');//错误返回err
+            } else {
+                callback(result[0]);
+            }
+        })
+    },
+    addcommunity: function (title,content,uid,time, callback) {
+        client.query(_mySql.addcommunity, [uid,time,title,content], function (error, result) {
             if (error) {
                 callback('err');//错误返回err
             } else {
